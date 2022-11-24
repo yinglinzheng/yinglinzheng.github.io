@@ -34,6 +34,8 @@ jobs:
 - 在你的仓库设置界面->Secrets > 新建条目-> 名字为`ACCESS_TOKEN`，值为上一步创建的个人访问token。
 - 在`docs/README.md`里随便修改点啥，触发一次commit和push
 - 则应该会在github actions看到正在编译，master分支的代码经过编译后的产物会放到gh_pages分支，然后就会显示在你的github pages上了
+![图片](https://user-images.githubusercontent.com/89906355/203791898-b699218c-4df9-4a90-b5fd-c9505fbbbfc8.png)
+
 
 
 
