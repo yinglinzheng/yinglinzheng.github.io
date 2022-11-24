@@ -1,98 +1,40 @@
-<h1 align="center">
-  <a href="https://github.com/mtobeiyf/vuepress-homepage" title="Homepage">
-    <img src="https://user-images.githubusercontent.com/5097752/39163721-4c79012c-47ae-11e8-842b-2af72f69cc2c.jpg" width="300px" alt="">
-  </a>
-  <br />
-  Your Awesome Homepage
-</h1>
+如果你在你的网站看到这个README，说明你的GITHUB pages是从master分支构建的，请切换到gh_pages分支
 
-<p align="center">
-  Build your site like a Pro :v:
-</p>
+## Setup
+下面的教程使用yourusername来表示你的github用户名
 
-<p align="center">
-  <img src="https://img.shields.io/badge/License-MIT-green.svg" alt="">
-  <img src="https://img.shields.io/badge/PR-welcome-brightgreen.svg" alt="">
-</p>
+- 首先将此仓库导入到你的github账户中，仓库名设置为`yourusername.github.io`，这个仓库不能是private，否则无法启用pages服务
+- 然后编辑`.github/workflows/vuepress-deploy.yml`，将其中的`yinglinzheng`替换为`yourusername`，大概长这样
+```yml
+name: Build and Deploy
+on: [push]
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout
+      uses: actions/checkout@master
 
-<h2>
-  <a href="https://vuepress-homepage.netlify.com" target="_blank" title="Demo">
-    Live Demo
-  </a>
-</h2>
+    - name: vuepress-deploy
+      uses: jenkey2011/vuepress-deploy@master
+      env:
+        ACCESS_TOKEN: ${{ secrets.ACCESS_TOKEN }}
+        TARGET_REPO: yourusername/yourusername.github.io
+        TARGET_BRANCH: gh_pages
+        BUILD_SCRIPT: yarn && yarn build
+        BUILD_DIR: dist/
 
-[![Deploy to Netlify](https://www.netlify.com/img/deploy/button.svg)](https://app.netlify.com/start/deploy?repository=https://github.com/mtobeiyf/vuepress-homepage)
-
-Screenshots:
-
-| Home/Resume :newspaper: | Projects/Publications :books: |
-| :---: | :---: |
-| <img src="https://user-images.githubusercontent.com/5097752/71707796-8b275880-2dba-11ea-8db0-03172722c35d.png"/> | <img src="https://user-images.githubusercontent.com/5097752/71707797-8b275880-2dba-11ea-8239-c51f4bac6542.png"/> |
-
-| About Me :raising_hand: | Docs/Articles :closed_book: |
-| :---: | :---: |
-| <img src="https://user-images.githubusercontent.com/5097752/71707795-8b275880-2dba-11ea-9440-987d542c560c.png"/> | <img src="https://user-images.githubusercontent.com/5097752/71707798-8b275880-2dba-11ea-9777-d9d64ac4ad45.png"/> |
-
-<h2>
-  <a href="https://vuepress-homepage.netlify.com/guide/" target="_blank" title="Getting Started">
-    Getting Started
-  </a>
-</h2>
-
-Check the full documentation here :point_right: [Guide](https://vuepress-homepage.netlify.com/guide/)
-
-Make sure you have [Node.js](https://nodejs.org) and [yarn](https://yarnpkg.com) installed.
-
-```bash
-# Clone the repo
-git clone https://github.com/mtobeiyf/vuepress-homepage.git
-cd vuepress-homepage
-
-# Install VuePress
-yarn global add vuepress
-# OR npm install -g vuepress
-
-# Install dependencies
-yarn
-# OR npm install
-
-# Run
-$ yarn dev
-# OR npm run dev
 ```
 
-Check your site at `http://127.0.0.1:8080/`
-
-## Features
-
-- Markdown and emoji supported :smiley:
-- Elegant and minimalistic
-- Customizable and mobile-friendly
-- Multi-language support
-- Powered by [VuePress](https://vuepress.vuejs.org/) and [Vue.js](https://vuejs.org/)
-
-It's **static**, which means once generated, your site could be deployed anywhere, like [Netlify](https://www.netlify.com/) or [GitHub Pages]()
-
-| Simple Editing | Elegant Output |
-| :---: | :---: |
-| <img src="https://user-images.githubusercontent.com/5097752/39165083-42470364-47b5-11e8-8e1b-e225e6cf4161.png"/> | <img src="https://user-images.githubusercontent.com/5097752/39165092-4af03422-47b5-11e8-986e-02bee0fe6979.jpg"/> |
-
-It's **responsive** and **mobile friendly**.
-
-| Main | Projects | Doc | Sidebar |
-| :---: | :---: | :---: | :---: |
-| <img src="https://user-images.githubusercontent.com/5097752/39163461-30a0e754-47ad-11e8-84ff-0c6716d6e937.jpg"/> | <img src="https://user-images.githubusercontent.com/5097752/39163230-2c917634-47ac-11e8-9c08-a87336c0bb02.jpg"/> | <img src="https://user-images.githubusercontent.com/5097752/39163235-32001436-47ac-11e8-8a80-f5aa1d639b82.png"/> | <img src="https://user-images.githubusercontent.com/5097752/39163238-368bfb5a-47ac-11e8-81b9-78a38af16dfe.jpg"/> |
+- 在仓库设置页面启用仓库的github actions功能
+- 在仓库设置界面启用仓库的pages功能，注意要选择从gh_pages分支进行构建，否则你的主页会显示为master分支的README，也就是本页面。
+- 创建个人访问token: 个人设置界面-> Developer settings > Personal access tokens > Generate new token > 至少选中repo下的项。然后你会得到一个token，找个什么地方记下来，下一步会用到。
+- 在你的仓库设置界面->Secrets > 新建条目-> 名字为`ACCESS_TOKEN`，值为上一步创建的个人访问token。
+- 在`docs/README.md`里随便修改点啥，触发一次commit和push
+- 则应该会在github actions看到正在编译，master分支的代码经过编译后的产物会放到gh_pages分支，然后就会显示在你的github pages上了
 
 
 
-## Credit
 
-[VuePress](https://vuepress.vuejs.org/): Vue-powered Static Site Generator
 
-[Vue.js](https://vuejs.org/): The Progressive JavaScript Framework
 
-## License
-
-Copyright © 2020, Fing
-
-Released under the [MIT License](https://opensource.org/licenses/MIT).
