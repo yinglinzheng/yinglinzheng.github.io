@@ -4,7 +4,7 @@
 下面的教程使用yourusername来表示你的github用户名
 
 - 首先将此仓库导入到你的github账户中，仓库名设置为`yourusername.github.io`，这个仓库不能是private，否则无法启用pages服务
-- 然后编辑`.github/workflows/vuepress-deploy.yml`，将其中的`yinglinzheng`替换为`yourusername`，大概长这样
+- 然后编辑[.github/workflows/vuepress-deploy.yml](.github/workflows/vuepress-deploy.yml)，将其中的`yinglinzheng`替换为`yourusername`，大概长这样
 ```yml
 name: Build and Deploy
 on: [push]
