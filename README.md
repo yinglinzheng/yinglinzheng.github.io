@@ -3,7 +3,9 @@
 ## Setup
 下面的教程使用`yourusername`来表示你的github用户名
 - 最终你的主页会部署在 https://yourusername.github.io ，效果参见 https://yinglinzheng.github.io/
-- 首先将此仓库导入到你的github账户中，仓库名设置为`yourusername.github.io`，这个仓库不能是private，否则无法启用pages服务
+- 首先点右上角加号，将此仓库导入到你的github账户中，仓库名设置为`yourusername.github.io`，这个仓库不能是private，否则无法启用pages服务
+![图片](https://user-images.githubusercontent.com/89906355/203793304-210b0a97-5632-4f3f-b6db-90a442677176.png)
+
 - 然后编辑[.github/workflows/vuepress-deploy.yml](.github/workflows/vuepress-deploy.yml)，将其中的`yinglinzheng`替换为`yourusername`，大概长这样
 ```yml
 name: Build and Deploy
