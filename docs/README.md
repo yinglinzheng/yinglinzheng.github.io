@@ -6,9 +6,9 @@ name: Yinglin Zheng（郑英林）
 profile: /profile.jpg
 
 socials:
-  # - title: github
-  #   icon: "/icons/github.svg"
-  #   link: https://github.com/elliottzheng
+  - title: github
+    icon: "/icons/github.svg"
+    link: https://github.com/yinglinzheng
   - title: linkedin
     icon: "/icons/linkedin-mono.svg"
     link: https://www.linkedin.com/in/%E8%8B%B1%E6%9E%97-%E9%83%91-b17715135/
@@ -22,7 +22,7 @@ email: zhengyinglin@stu.xmu.edu.cn
 
 ## About Me
 
-I'm currently a graduate student in the [Visual Computing and Graphics Lab](https://vcg.xmu.edu.cn/) of Xiamen University, supervised by professor [Ming Zeng](http://mingzeng.xyz/). 
+I'm currently a postgraduate student in the [Visual Computing and Graphics Lab](https://vcg.xmu.edu.cn/) of Xiamen University, supervised by professor [Ming Zeng](http://mingzeng.xyz/). 
 
 I have spent wonderful times as an intern at Visual Computing Group, [Microsoft Research Asia(MSRA)](https://www.msra.cn/), working with [Dr. Hao Yang](https://yang-h.github.io/), [Dr. Jianmin Bao](https://jianminbao.github.io/), [Dr. Ting Zhang](https://www.microsoft.com/en-us/research/people/tinzhan/), and [Dr. Dong Chen](http://www.dongchen.pro/).
 
