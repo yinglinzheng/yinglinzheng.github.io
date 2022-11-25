@@ -29,7 +29,7 @@ I have spent wonderful times as an intern at Visual Computing Group, [Microsoft 
 My research interests lie at human-centric computer vision and graphics. I serve as the reviewer of CVPR 2022, 2023 and ECCV 2022.
 
 ## News
-- [Oct. 2022] I and my roommate [Wenjin Deng](https://wenjindeng.netlify.app/) won the National Scholarship for Graduate Students at the same time.
+- [Oct. 2022] I and my roommate [Wenjin Deng](https://wenjindeng.netlify.app/) won the National Scholarship for Postgraduate Students at the same time.
 - [Sep. 2022] My tutorial about [Denoising Diffusion Probabilistic Models](https://arxiv.org/abs/2006.11239) is available on [Bilibili](https://www.bilibili.com/video/BV1rW4y1Y7M5/).
 - [Jun. 2022] The [LAION-Face](https://github.com/FacePerceiver/LAION-Face) dataset was released to support large-scale face pretraining.
 - [Jun. 2022] I received the reward of Excellent from the Star of Tomorrow Internship program in Microsoft Research Asia.
@@ -153,18 +153,6 @@ My research interests lie at human-centric computer vision and graphics. I serve
   [Link](https://www.researchgate.net/publication/341411157_Joint_learning_for_face_alignment_and_face_transfer_with_depth_image)
 
 </ProjectCard>
-
-<!-- <ProjectCard image="/projects/1.png" hideBorder=true>
-
-  **CopyTranslator: Foreign language reading and translation assistant based on copy and translate.**
-
-  CopyTranslator greatly simplify the steps required for translation, just copy the text to the clipboard, and wait to view the translation results in the next second.
-
-  [Homepage](https://copytranslator.github.io) [Github](https://github.com/CopyTranslator/CopyTranslator)
-
-</ProjectCard> -->
-
-
 
 
 ## Awards & Honors
