@@ -24,11 +24,13 @@ email: zhengyinglin@stu.xmu.edu.cn
 
 I'm currently a postgraduate student in the [Visual Computing and Graphics Lab](https://vcg.xmu.edu.cn/) of Xiamen University, supervised by professor [Ming Zeng](http://mingzeng.xyz/). 
 
-I have spent wonderful times as an intern at Visual Computing Group, [Microsoft Research Asia(MSRA)](https://www.msra.cn/), working with [Dr. Hao Yang](https://yang-h.github.io/), [Dr. Jianmin Bao](https://jianminbao.github.io/), [Dr. Ting Zhang](https://www.microsoft.com/en-us/research/people/tinzhan/), and [Dr. Dong Chen](http://www.dongchen.pro/).
+I am also a Research intern at Visual Computing Group, [Microsoft Research Asia(MSRA)](https://www.msra.cn/), working with [Dr. Jianmin Bao](https://jianminbao.github.io/), [Dr. Ting Zhang](https://www.microsoft.com/en-us/research/people/tinzhan/), and [Dr. Dong Chen](http://www.dongchen.pro/).
 
 My research interests lie at human-centric computer vision and graphics. I serve as the reviewer of CVPR 2022, 2023 and ECCV 2022.
 
 ## News
+- [Dec. 2022] Our work on music-driven face synthesis has been accepted by CVM2023 and will be published on CVMJ.
+- [Nov. 2022] Our work on multi-exposure image fusion named EMEF has been accepted by AAAI2023.
 - [Oct. 2022] I and my roommate [Wenjin Deng](https://wenjindeng.netlify.app/) won the National Scholarship for Postgraduate Students at the same time.
 - [Sep. 2022] My tutorial about [Denoising Diffusion Probabilistic Models](https://arxiv.org/abs/2006.11239) is available on [Bilibili](https://www.bilibili.com/video/BV1rW4y1Y7M5/).
 - [Jun. 2022] The [LAION-Face](https://github.com/FacePerceiver/LAION-Face) dataset was released to support large-scale face pretraining.
@@ -40,6 +42,29 @@ My research interests lie at human-centric computer vision and graphics. I serve
 
 
 ## Publications
+<ProjectCard hideBorder=true image="/projects/musicface.png">
+  
+  MusicFace: Music-driven Expressive Singing Face Synthesis
+
+  Pengfei Liu, Wenjin Deng, Hengda Li, Jintai Wang, **Yinglin Zheng**, Yiwei Ding, Xiaohu Guo, Ming Zeng*
+
+  2023, Computational Visual Media(CVMJ 2023)
+
+</ProjectCard> 
+
+
+<ProjectCard hideBorder=true image="/projects/emef.png">
+
+  EMEF: Ensemble Multi-Exposure Image Fusion
+
+  Renshuai Liu, Chengyang Li, Haitao Cao, **Yinglin Zheng**, Ming Zeng, Xuan Cheng*
+    
+  2023, AAAI Conference on Artificial Intelligence (AAAI), Oral presentation.
+
+  [Project](https://github.com/medalwill/EMEF)
+
+</ProjectCard>
+
 <ProjectCard hideBorder=true image="https://s1.ax1x.com/2022/08/29/vfir5D.png">
 
   MaskCLIP: Masked Self-Distillation Advances Contrastive Language-Image Pretraining
@@ -164,6 +189,9 @@ My research interests lie at human-centric computer vision and graphics. I serve
 
 
 ## Education & Experiences
+
+- **Research Intern, Visual Computing Group, Microsoft Research Asia** <br/>
+Dec. 2022 - present
 
 - **Research Intern, Visual Computing Group, Microsoft Research Asia** <br/>
 Sep. 2020 - Mar. 2022
