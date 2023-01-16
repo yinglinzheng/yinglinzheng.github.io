@@ -24,12 +24,12 @@ email: zhengyinglin@stu.xmu.edu.cn
 
 I'm currently a postgraduate student in the [Visual Computing and Graphics Lab](https://vcg.xmu.edu.cn/) of Xiamen University, supervised by professor [Ming Zeng](http://mingzeng.xyz/). 
 
-I am also a Research intern at Visual Computing Group, [Microsoft Research Asia(MSRA)](https://www.msra.cn/), working with [Dr. Jianmin Bao](https://jianminbao.github.io/), [Dr. Ting Zhang](https://www.microsoft.com/en-us/research/people/tinzhan/), and [Dr. Dong Chen](http://www.dongchen.pro/).
+I am also a research intern at Visual Computing Group, [Microsoft Research Asia(MSRA)](https://www.msra.cn/), working with [Dr. Jianmin Bao](https://jianminbao.github.io/), [Dr. Ting Zhang](https://www.microsoft.com/en-us/research/people/tinzhan/), and [Dr. Dong Chen](http://www.dongchen.pro/).
 
 My research interests lie at human-centric computer vision and graphics. I serve as the reviewer of CVPR 2022, 2023 and ECCV 2022.
 
 ## News
-- [Dec. 2022] Our work on music-driven face synthesis has been accepted by CVM2023 and will be published on CVMJ.
+- [Dec. 2022] Our work on singing head generation has been accepted by CVM2023 and will be published on CVMJ.
 - [Nov. 2022] Our work on multi-exposure image fusion named EMEF has been accepted by AAAI2023.
 - [Oct. 2022] I and my roommate [Wenjin Deng](https://wenjindeng.netlify.app/) won the National Scholarship for Postgraduate Students at the same time.
 - [Sep. 2022] My tutorial about [Denoising Diffusion Probabilistic Models](https://arxiv.org/abs/2006.11239) is available on [Bilibili](https://www.bilibili.com/video/BV1rW4y1Y7M5/).
@@ -49,6 +49,8 @@ My research interests lie at human-centric computer vision and graphics. I serve
   Pengfei Liu, Wenjin Deng, Hengda Li, Jintai Wang, **Yinglin Zheng**, Yiwei Ding, Xiaohu Guo, Ming Zeng*
 
   2023, Computational Visual Media(CVMJ 2023)
+
+  [Dataset](https://vcg.xmu.edu.cn/datasets/singingface/index.html)
 
 </ProjectCard> 
 
