@@ -29,6 +29,7 @@ I am also a research intern at Visual Computing Group, [Microsoft Research Asia(
 My research interests lie at human-centric computer vision. I serve as the reviewer of ICCV 2023, CVPR 2022, 2023 and ECCV 2022.
 
 ## News
+- [Feb. 2023] Our work MaskCLIP is accepted by CVPR 2023.
 - [Dec. 2022] Our work on singing head generation has been accepted by CVM2023 and will be published on CVMJ.
 - [Nov. 2022] Our work on multi-exposure image fusion named EMEF has been accepted by AAAI2023.
 - [Oct. 2022] I and my roommate [Wenjin Deng](https://wenjindeng.netlify.app/) won the National Scholarship for Postgraduate Students at the same time.
@@ -42,6 +43,19 @@ My research interests lie at human-centric computer vision. I serve as the revie
 
 
 ## Publications
+
+<ProjectCard hideBorder=true image="https://s1.ax1x.com/2022/08/29/vfir5D.png">
+
+  MaskCLIP: Masked Self-Distillation Advances Contrastive Language-Image Pretraining
+
+  Xiaoyi Dong, Jianmin Bao, **Yinglin Zheng**, Ting Zhang, Dongdong Chen, Hao Yang, Ming Zeng, Weiming Zhang, Lu Yuan, Dong Chen, Fang Wen, Nenghai Yu
+
+  2023, IEEE Conference on Computer Vision and Pattern Recognition(CVPR)
+
+  [Paper](https://arxiv.org/abs/2208.12262)
+
+</ProjectCard> 
+
 <ProjectCard hideBorder=true image="/projects/musicface.png">
   
   MusicFace: Music-driven Expressive Singing Face Synthesis
@@ -67,17 +81,7 @@ My research interests lie at human-centric computer vision. I serve as the revie
 
 </ProjectCard>
 
-<ProjectCard hideBorder=true image="https://s1.ax1x.com/2022/08/29/vfir5D.png">
 
-  MaskCLIP: Masked Self-Distillation Advances Contrastive Language-Image Pretraining
-
-  Xiaoyi Dong, **Yinglin Zheng**, Jianmin Bao, Ting Zhang, Dongdong Chen, Hao Yang, Ming Zeng, Weiming Zhang, Lu Yuan, Dong Chen, Fang Wen, Nenghai Yu
-
-  Arxiv preprint(2022)
-
-  [Paper](https://arxiv.org/abs/2208.12262)
-
-</ProjectCard> 
 
 <ProjectCard hideBorder=true image="https://s1.ax1x.com/2022/04/21/LyGJKK.png">
 
