@@ -202,7 +202,7 @@ Dec. 2022 - present
 - **Research Intern, Visual Computing Group, Microsoft Research Asia** <br/>
 Sep. 2020 - Mar. 2022
 
-- **Master’s Student of Computer Science, School of Informatics, Xiamen University** <br/>
+- **Doctoral Student of Computer Science, School of Informatics, Xiamen University** <br/>
 Sep. 2020 - present
 
 - **Bachelor of Software Engineering, School of Informatics, Xiamen University** <br/>
