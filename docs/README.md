@@ -26,7 +26,7 @@ I'm currently a PhD student in the [Visual Computing and Graphics Lab](https://v
 
 I am also a research intern at Visual Computing Group, [Microsoft Research Asia(MSRA)](https://www.msra.cn/), working with [Dr. Jianmin Bao](https://jianminbao.github.io/), [Dr. Ting Zhang](https://www.microsoft.com/en-us/research/people/tinzhan/), and [Dr. Dong Chen](http://www.dongchen.pro/).
 
-My research interests lie at human-centric computer vision. I serve as the reviewer of ICCV 2023, CVPR 2022, 2023 and ECCV 2022.
+My research interests lie at human-centric computer vision. I serve as the reviewer of CVPR, ICCV, ECCV, AAAI.
 
 ## News
 - [Feb. 2023] Our work MaskCLIP is accepted by CVPR 2023.
