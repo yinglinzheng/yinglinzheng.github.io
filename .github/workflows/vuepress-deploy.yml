@@ -8,10 +8,10 @@ jobs:
       uses: actions/checkout@master
 
     - name: vuepress-deploy
-      uses: IT4Change/vuepress-build-and-deploy@master
+      uses: jenkey2011/vuepress-deploy@master
       env:
         ACCESS_TOKEN: ${{ secrets.ACCESS_TOKEN }}
         TARGET_REPO: yinglinzheng/yinglinzheng.github.io
         TARGET_BRANCH: gh_pages
-        BUILD_SCRIPT: yarn install --registry=https://registry.yarnpkg.com/ && yarn build
+        BUILD_SCRIPT: yarn && yarn build
         BUILD_DIR: dist/
