@@ -24,7 +24,7 @@ email: zhengyinglin@stu.xmu.edu.cn
 
 I'm currently a PhD student in the [Visual Computing and Graphics Lab](https://vcg.xmu.edu.cn/) of Xiamen University, supervised by professor [Ming Zeng](http://mingzeng.xyz/). 
 
-I am also a research intern at Visual Computing Group, [Microsoft Research Asia(MSRA)](https://www.msra.cn/), working with [Dr. Jianmin Bao](https://jianminbao.github.io/), [Dr. Ting Zhang](https://www.microsoft.com/en-us/research/people/tinzhan/), and [Dr. Dong Chen](http://www.dongchen.pro/).
+I had a fantastic experience as a research intern at Visual Computing Group, [Microsoft Research Asia(MSRA)](https://www.msra.cn/), working with [Dr. Jianmin Bao](https://jianminbao.github.io/), [Dr. Ting Zhang](https://www.microsoft.com/en-us/research/people/tinzhan/), and [Dr. Dong Chen](http://www.dongchen.pro/).
 
 My research interests lie at human-centric computer vision. I serve as the reviewer of CVPR, ICCV, ECCV, AAAI.
 
@@ -197,7 +197,7 @@ My research interests lie at human-centric computer vision. I serve as the revie
 ## Education & Experiences
 
 - **Research Intern, Visual Computing Group, Microsoft Research Asia** <br/>
-Dec. 2022 - present
+Dec. 2022 - Mar. 2024
 
 - **Research Intern, Visual Computing Group, Microsoft Research Asia** <br/>
 Sep. 2020 - Mar. 2022
