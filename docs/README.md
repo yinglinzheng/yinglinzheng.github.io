@@ -18,7 +18,7 @@ bio: Student at Xiamen University
 email: zhengyinglin@stu.xmu.edu.cn
 ---
 
-<ProfileSection :frontmatter="$page.frontmatter" />
+<ProfileSection :frontmatter="$page.frontmatter" /> 
 
 ## About Me
 
