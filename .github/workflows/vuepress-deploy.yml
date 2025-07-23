@@ -19,10 +19,10 @@ jobs:
       run: rm yarn.lock
 
     - name: Install deps
-      run: npm install
+      run: yarn
 
     - name: Build VuePress site
-      run: npm run build
+      run: yarn build
 
     # please check out the docs of the workflow for more details
     # @see https://github.com/crazy-max/ghaction-github-pages
