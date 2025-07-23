@@ -19,7 +19,7 @@ jobs:
       run: rm yarn.lock
 
     - name: Install deps
-      run: npm
+      run: npm install
 
     - name: Build VuePress site
       run: npm run build
