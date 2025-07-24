@@ -29,6 +29,8 @@ I had a fantastic experience as a research intern at Visual Computing Group, [Mi
 My research interests lie at human-centric computer vision. I serve as the reviewer of CVPR, ICCV, ECCV, AAAI.
 
 ## News
+- [Jul. 2025] HairShifter has been accepted by ACM MM 2025.
+- [Apr. 2025] Our work on predicting turn-taking and backchannel in human-machine conversations has been accepted by ACL 2025.
 - [Feb. 2023] Our work MaskCLIP is accepted by CVPR 2023.
 - [Dec. 2022] Our work on singing head generation has been accepted by CVM2023 and will be published on CVMJ.
 - [Nov. 2022] Our work on multi-exposure image fusion named EMEF has been accepted by AAAI2023.
@@ -43,6 +45,107 @@ My research interests lie at human-centric computer vision. I serve as the revie
 
 
 ## Publications
+<ProjectCard hideBorder=true image="https://vcg.xmu.edu.cn/img/hairshifter.png">
+
+  HairShifter: Consistent and High-Fidelity Video Hair Transfer via Anchor-Guided Animation
+
+  Wangzheng Shi†, **Yinglin Zheng†**, Yuxin Lin, Jianmin Bao, Ming Zeng*, Dong Chen
+
+  †Equal contribution
+
+  *ACM MM (CCF-A), 2025*
+
+  [Paper](https://arxiv.org/abs/2507.12758)
+
+</ProjectCard>
+
+<ProjectCard hideBorder=true image="https://vcg.xmu.edu.cn/img/emohuman.png">
+
+  EmoHuman: Fine-Grained Emotion-Controlled Talking Head Generation via Audio-Text Multimodal Detangling
+
+  Qifeng Dai, Huidong Feng, Wendi Cui, Xinqi Cai, **Yinglin Zheng**, Ming Zeng*
+
+  *ICMR (CCF-B), 2025*
+
+  [Paper](https://dl.acm.org/doi/10.1145/3731715.3733322)
+
+</ProjectCard>
+
+<ProjectCard hideBorder=true image="https://vcg.xmu.edu.cn/img/consistent-human-animation.png">
+
+  Consistent Human Animation with Pseudo Multi-View Anchoring and Cross-Granularity Integration
+
+  Jintai Wang, **Yinglin Zheng**, Pengfei Liu, Qifeng Dai , Ming Zeng*
+
+  *ICMR (CCF-B), 2025*
+  
+  [Paper](https://dl.acm.org/doi/10.1145/3731715.3733297)
+
+</ProjectCard>
+
+<ProjectCard hideBorder=true image="https://vcg.xmu.edu.cn/img/turn-taking.png">
+
+  Predicting Turn-Taking and Backchannel in Human-Machine Conversations Using Linguistic, Acoustic, and Visual Signals
+
+  Yuxin Lin†, **Yinglin Zheng†**, Ming Zeng*, Wangzheng Shi
+
+  †Equal contribution
+
+  *ACL (CCF-A), 2025*
+
+  [Paper](https://arxiv.org/abs/2505.12654)
+
+</ProjectCard>
+
+
+<ProjectCard hideBorder=true image="https://vcg.xmu.edu.cn/img/gm2024.png">
+
+  High-fidelity instructional fashion image editing
+
+  **Yinglin Zheng**, Ting Zhang, Jianmin Bao, Dong Chen, Ming Zeng*
+
+  *Graphical Models (CCF-B), 2024*
+
+  [Paper](https://www.sciencedirect.com/science/article/pii/S1524070324000110)
+
+</ProjectCard>
+
+<ProjectCard hideBorder=true image="https://vcg.xmu.edu.cn/img/mmfn.png">
+
+  Multi-Modal Gait Recognition with Unidirectional Cross-modal Alignment
+
+  Hengda Li, **Yinglin Zheng**, Qifeng Dai, Jintai Wang, Liang Song, Ming Zeng*
+
+  *ICME (CCF-B), 2024*
+
+  [Paper](https://ieeexplore.ieee.org/document/10687404)
+
+</ProjectCard>
+
+
+<ProjectCard hideBorder=true image="https://vcg.xmu.edu.cn/img/gm2023.png">
+
+  Vertex position estimation with spatial–temporal transformer for 3D human reconstruction
+
+  Xiangjun Zhang, **Yinglin Zheng**, Wenjin Deng, Qifeng Dai, Yuxin Lin, Wangzheng Shi, Ming Zeng*
+
+  *Graphical Models (CCF-B), 2023*
+
+  [Paper](https://www.sciencedirect.com/science/article/pii/S1524070323000371)
+
+</ProjectCard>
+
+<ProjectCard hideBorder=true image="https://vcg.xmu.edu.cn/img/musicface.png">
+
+  MusicFace: Music-driven Expressive Singing Face Synthesis
+
+  Pengfei Liu, Wenjin Deng, Hengda Li, Jintai Wang, **Yinglin Zheng**, Yiwei Ding, Xiaohu Guo, Ming Zeng*
+
+  *CVMJ, 2023*
+
+  [PDF](https://link.springer.com/content/pdf/10.1007/s41095-023-0343-7.pdf)
+
+</ProjectCard>
 
 <ProjectCard hideBorder=true image="https://s1.ax1x.com/2022/08/29/vfir5D.png">
 
