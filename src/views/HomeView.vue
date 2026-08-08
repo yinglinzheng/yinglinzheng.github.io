@@ -15,7 +15,7 @@
           </h1>
           <p class="hero-desc">
             {{ profile.title }}。
-            目前主要关注中学人工智能教育、社团实践与开源工具在教学中的应用。
+            关注中学人工智能教育、社团实践与开源工具在教学中的应用。
           </p>
           <div class="hero-tags">
             <span class="tag motion-float" style="--tag-tilt:1; --float-delay:.2s;">计算机科学与技术博士</span>
