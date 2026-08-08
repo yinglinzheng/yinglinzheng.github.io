@@ -20,6 +20,7 @@
           <li><router-link to="/experience">经历</router-link></li>
           <li><router-link to="/projects">开源</router-link></li>
           <li><router-link to="/blog">博客</router-link></li>
+          <li><a href="/diffusion-model-tutorial/" target="_blank" rel="noopener">Diffusion 教程</a></li>
         </ul>
         <div class="nav-social">
           <a :href="profile.github" target="_blank" class="social-link" aria-label="GitHub">
