@@ -56,7 +56,10 @@
           <div class="profile-image profile-image-stage">
             <span class="profile-aura profile-aura-a" aria-hidden="true"></span>
             <span class="profile-aura profile-aura-b" aria-hidden="true"></span>
-            <img src="/profile.jpg" :alt="profile.nameCn" />
+            <picture>
+              <source srcset="/profile.webp" type="image/webp" />
+              <img src="/profile-opt.jpg" :alt="profile.nameCn" width="480" height="480" loading="eager" decoding="async" />
+            </picture>
           </div>
           <div class="profile-info">
             <h3>{{ profile.nameCn }}</h3>

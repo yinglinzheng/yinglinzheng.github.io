@@ -1,53 +1,45 @@
 import { createRouter, createWebHashHistory } from 'vue-router'
-import HomeView from '../views/HomeView.vue'
-import NewsView from '../views/NewsView.vue'
-import PublicationsView from '../views/PublicationsView.vue'
-import AwardsView from '../views/AwardsView.vue'
-import ExperienceView from '../views/ExperienceView.vue'
-import ProjectsView from '../views/ProjectsView.vue'
-import BlogList from '../components/BlogList.vue'
-import BlogPost from '../components/BlogPost.vue'
 
 const routes = [
   {
     path: '/',
     name: 'Home',
-    component: HomeView
+    component: () => import('../views/HomeView.vue')
   },
   {
     path: '/news',
     name: 'News',
-    component: NewsView
+    component: () => import('../views/NewsView.vue')
   },
   {
     path: '/publications',
     name: 'Publications',
-    component: PublicationsView
+    component: () => import('../views/PublicationsView.vue')
   },
   {
     path: '/awards',
     name: 'Awards',
-    component: AwardsView
+    component: () => import('../views/AwardsView.vue')
   },
   {
     path: '/experience',
     name: 'Experience',
-    component: ExperienceView
+    component: () => import('../views/ExperienceView.vue')
   },
   {
     path: '/projects',
     name: 'Projects',
-    component: ProjectsView
+    component: () => import('../views/ProjectsView.vue')
   },
   {
     path: '/blog',
     name: 'BlogList',
-    component: BlogList
+    component: () => import('../components/BlogList.vue')
   },
   {
     path: '/blog/:id',
     name: 'BlogPost',
-    component: BlogPost
+    component: () => import('../components/BlogPost.vue')
   }
 ]
 
