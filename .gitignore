@@ -1,8 +1,38 @@
-.DS_Store
+# dependencies (bun install)
 node_modules
-*.log
-.temp
-vuepress
-TODOs.md
+
+# output
+out
 dist
-deploy
+dist-prod
+*.tgz
+
+# project memory (not for deploy)
+.workbuddy
+
+# code coverage
+coverage
+*.lcov
+
+# logs
+logs
+_.log
+report.[0-9]_.[0-9]_.[0-9]_.[0-9]_.json
+
+# dotenv environment variable files
+.env
+.env.development.local
+.env.test.local
+.env.production.local
+.env.local
+
+# caches
+.eslintcache
+.cache
+*.tsbuildinfo
+
+# IntelliJ based IDEs
+.idea
+
+# Finder (MacOS) folder config
+.DS_Store
