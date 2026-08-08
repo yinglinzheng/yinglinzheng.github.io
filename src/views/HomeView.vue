@@ -14,7 +14,7 @@
             <span class="name-en">{{ profile.nameEn }}</span>
           </h1>
           <p class="hero-desc">
-            {{ profile.title }}。
+            {{ profile.title }}。<br />
             关注中学人工智能教育、社团实践与开源工具在教学中的应用。
           </p>
           <div class="hero-tags">
