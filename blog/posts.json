@@ -1,0 +1,36 @@
+{
+  "posts": [
+    {
+      "id": "ai-not-neutral",
+      "title": "AI 不代表人类，只代表少数人",
+      "date": "2026-10-06",
+      "author": "郑英林",
+      "category": "AI沉思录",
+      "tags": [
+        "AI偏见",
+        "大模型",
+        "训练语料",
+        "数据清洗",
+        "RLHF",
+        "话语权"
+      ],
+      "excerpt": "架构永远中立，语料从不中立。AI的偏见与大模型架构无关，也不只是数据清洗和RLHF造成的——绝大多数人的想法从来就没被记录下来，语料在诞生之前就已经完成了最根本的筛选。",
+      "file": "ai-not-neutral.md"
+    },
+    {
+      "id": "ai-era-software-engineering",
+      "title": "AI时代的软件工程依然重要",
+      "date": "2026-10-01",
+      "author": "郑英林",
+      "category": "AI沉思录",
+      "tags": [
+        "软件工程",
+        "需求分析",
+        "AI辅助编程",
+        "开发流程"
+      ],
+      "excerpt": "AI写代码越来越强，但它替代的只是编码，替代不了需求分析、系统设计与流程规范。越是AI时代，越需要软件工程的思维。",
+      "file": "ai-era-software-engineering.md"
+    }
+  ]
+}
