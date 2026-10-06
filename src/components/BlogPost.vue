@@ -191,7 +191,7 @@ const loadPost = async () => {
     
     post.value = foundPost
     // 文章标题要等 posts.json 拿到才知道，这里覆盖路由里写的占位标题
-    setPageTitle(foundPost.title)
+    setPageTitle(foundPost.title, foundPost.category)
     
     // 加载 Markdown 内容
     const response = await fetch(`/blog/${foundPost.file}`)

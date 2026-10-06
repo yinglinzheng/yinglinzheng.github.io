@@ -9,9 +9,10 @@ declare module 'vue-router' {
 
 const SITE_TITLE = 'Yinglin Zheng'
 
-// 统一在这里拼标题，文章页加载完成后会带真实标题再调用一次
-export const setPageTitle = (pageTitle?: string) => {
-  document.title = pageTitle ? `${pageTitle} - Yinglin` : SITE_TITLE
+// 统一在这里拼标题。默认后缀是 Yinglin；文章页会传专栏名进来，变成「文章名 - 专栏名」
+export const setPageTitle = (pageTitle?: string, suffix = 'Yinglin') => {
+  // 用 || 兜底而不是只靠默认值：显式传空字符串时默认值不生效，否则会留下「标题 - 」的尾巴
+  document.title = pageTitle ? `${pageTitle} - ${suffix || 'Yinglin'}` : SITE_TITLE
 }
 
 const routes = [
