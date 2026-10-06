@@ -1,20 +1,53 @@
 <template>
-  <div class="blog-list-page">
-    <div class="container">
-      <div class="page-header">
-        <router-link to="/" class="back-link">
-          <svg viewBox="0 0 24 24" width="20" height="20">
+  <SiteChrome>
+    <section class="inner-hero">
+      <div class="container">
+        <router-link to="/" class="mobile-back">
+          <svg viewBox="0 0 24 24" width="18" height="18">
             <path fill="currentColor" d="M20 11H7.83l5.59-5.59L12 4l-8 8 8 8 1.41-1.41L7.83 13H20v-2z"/>
           </svg>
           返回首页
         </router-link>
-        <h1>博客文章</h1>
-        <p class="subtitle">记录技术、分享经验</p>
+        <span class="section-tag">文章专栏</span>
+        <h1 class="page-title">{{ pageTitle }}</h1>
+        <p class="page-intro">{{ pageSubtitle }}</p>
+      </div>
+    </section>
+
+    <section class="content-section">
+      <div class="container">
+
+      <div class="filter-bar" v-if="showFilters">
+        <div class="filter-row" v-if="columns.length > 1">
+          <span class="filter-label">专栏</span>
+          <button
+            v-for="col in columns"
+            :key="col"
+            class="chip"
+            :class="{ active: col === activeColumn }"
+            @click="toggleColumn(col)"
+          >{{ col }}</button>
+        </div>
+        <div class="filter-row" v-if="allTags.length > 0">
+          <span class="filter-label">标签</span>
+          <button
+            v-for="tag in allTags"
+            :key="tag"
+            class="chip"
+            :class="{ active: tag === activeTag }"
+            @click="toggleTag(tag)"
+          >{{ tag }}</button>
+        </div>
+        <button
+          v-if="activeColumn || activeTag"
+          class="clear-filter"
+          @click="clearFilters"
+        >清除筛选（{{ filtered.length }} / {{ posts.length }}）</button>
       </div>
 
-      <div class="blog-grid" v-if="posts.length > 0">
+      <div class="blog-grid" v-if="filtered.length > 0">
         <article 
-          v-for="post in posts" 
+          v-for="post in filtered" 
           :key="post.id"
           class="blog-card"
           @click="goToPost(post.id)"
@@ -25,6 +58,16 @@
           </div>
           <h2 class="blog-title">{{ post.title }}</h2>
           <p class="blog-excerpt">{{ post.excerpt }}</p>
+          <div class="card-tags" v-if="post.tags && post.tags.length">
+            <button
+              v-for="tag in post.tags"
+              :key="tag"
+              class="tag-mini"
+              :class="{ active: tag === activeTag }"
+              title="按此标签筛选"
+              @click.stop="toggleTag(tag)"
+            >{{ tag }}</button>
+          </div>
           <div class="blog-footer">
             <span class="read-more">
               阅读全文
@@ -46,6 +89,11 @@
         <button @click="loadPosts" class="retry-btn">重试</button>
       </div>
 
+      <div v-else-if="posts.length > 0" class="no-result">
+        <p>这个专栏与标签的组合下暂时没有文章</p>
+        <button @click="clearFilters" class="retry-btn">清除筛选</button>
+      </div>
+
       <div v-else class="empty-state">
         <div class="empty-icon">
           <svg viewBox="0 0 24 24" width="56" height="56" fill="none" stroke="currentColor" stroke-width="1.5">
@@ -56,29 +104,102 @@
         </div>
         <h2>博客即将上线</h2>
         <p>这里将分享人工智能教育与开源实践的文章，敬请期待。</p>
-        <p class="hint">如需发布文章，可在 <code>public/blog/</code> 添加 Markdown，并运行 <code>npm run blog:generate</code> 生成索引。</p>
+        <p class="hint">如需发布文章，可在 <code>public/blog/</code> 添加 Markdown，并运行 <code>bun run blog:generate</code> 生成索引。</p>
       </div>
-    </div>
-  </div>
+      </div>
+    </section>
+  </SiteChrome>
 </template>
 
 <script setup lang="ts">
-import { ref, onMounted } from 'vue'
-import { useRouter } from 'vue-router'
+import { ref, computed, onMounted, watch } from 'vue'
+import { useRoute, useRouter } from 'vue-router'
+import SiteChrome from './SiteChrome.vue'
+import { setPageTitle } from '../router'
 
 interface BlogPost {
   id: string
   title: string
   date: string
+  author?: string
   category: string
+  tags?: string[]
   excerpt: string
   file: string
 }
 
+const route = useRoute()
 const router = useRouter()
 const posts = ref<BlogPost[]>([])
 const loading = ref(false)
 const error = ref(false)
+
+// 专栏与标签都从文章里聚合出来，posts.json 是唯一数据源，不额外维护清单
+const columns = computed(() => {
+  const seen = new Set<string>()
+  posts.value.forEach(post => { if (post.category) seen.add(post.category) })
+  return [...seen]
+})
+
+const allTags = computed(() => {
+  const seen = new Set<string>()
+  posts.value.forEach(post => (post.tags || []).forEach(tag => seen.add(tag)))
+  return [...seen].sort((a, b) => a.localeCompare(b, 'zh-Hans-CN'))
+})
+
+// 筛选状态放在 URL query 里（hash 路由下形如 #/blog?column=AI沉思录&tag=RLHF），链接可直接分享
+// 重复参数会被 vue-router 解析成数组，这里统一取第一个，避免手改链接时筛不出结果
+const firstQuery = (value: unknown) => {
+  if (Array.isArray(value)) return String(value[0] ?? '')
+  return String(value ?? '')
+}
+
+const activeColumn = computed(() => firstQuery(route.query.column))
+const activeTag = computed(() => firstQuery(route.query.tag))
+
+const filtered = computed(() =>
+  posts.value.filter(post =>
+    (!activeColumn.value || post.category === activeColumn.value) &&
+    (!activeTag.value || (post.tags || []).includes(activeTag.value))
+  )
+)
+
+const showFilters = computed(() =>
+  posts.value.length > 0 && (columns.value.length > 1 || allTags.value.length > 0)
+)
+
+// 只有一个专栏时直接把专栏名当页头，避免出现一行只有一个按钮的无意义筛选条
+const pageTitle = computed(() =>
+  activeColumn.value || (columns.value.length === 1 ? columns.value[0] : '博客')
+)
+
+// 标签页标题跟页头保持一致（文章数加载完后会从「博客」变成实际专栏名）
+watch(pageTitle, title => setPageTitle(title), { immediate: true })
+
+const pageSubtitle = computed(() => {
+  if (!activeColumn.value && !activeTag.value) return '按专栏与标签筛选文章'
+  const scope = [
+    activeColumn.value,
+    activeTag.value ? `#${activeTag.value}` : ''
+  ].filter(Boolean).join(' · ')
+  return `当前筛选：${scope}（${filtered.value.length} / ${posts.value.length} 篇）`
+})
+
+const setQuery = (next: Record<string, string>) => {
+  const query: Record<string, string> = {}
+  Object.entries(next).forEach(([key, value]) => {
+    if (value) query[key] = value
+  })
+  router.replace({ query })
+}
+
+const toggleColumn = (col: string) =>
+  setQuery({ column: activeColumn.value === col ? '' : col, tag: activeTag.value })
+
+const toggleTag = (tag: string) =>
+  setQuery({ tag: activeTag.value === tag ? '' : tag, column: activeColumn.value })
+
+const clearFilters = () => setQuery({})
 
 const loadPosts = async () => {
   loading.value = true
@@ -114,44 +235,76 @@ onMounted(() => {
 </script>
 
 <style scoped>
-.blog-list-page {
-  min-height: 100vh;
-  padding: 120px 0 80px;
-  background: var(--bg-dark);
+/* 手机端整站导航是隐藏的（style.css 里 .nav-links display:none），
+   列表页必须自带一个出口；桌面端有导航栏，这里不显示 */
+.mobile-back {
+  display: none;
 }
 
-.page-header {
-  text-align: center;
-  margin-bottom: 60px;
+.filter-bar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 16px 28px;
+  margin-bottom: 40px;
+  padding: 18px 24px;
+  background: var(--bg-card);
+  border: 1px solid var(--line-soft);
+  border-radius: 16px;
 }
 
-.back-link {
-  display: inline-flex;
+.filter-row {
+  display: flex;
+  flex-wrap: wrap;
   align-items: center;
   gap: 8px;
-  color: var(--text-secondary);
-  text-decoration: none;
-  margin-bottom: 24px;
-  transition: color 0.3s ease;
 }
 
-.back-link:hover {
+.filter-label {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  margin-right: 4px;
+}
+
+.chip {
+  padding: 6px 14px;
+  font-family: inherit;
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+  background: var(--surface-strong);
+  border: 1px solid var(--line-soft);
+  border-radius: 50px;
+  cursor: pointer;
+  transition: all 0.25s ease;
+}
+
+.chip:hover {
+  border-color: var(--primary);
+  color: var(--text-primary);
+  transform: translateY(-1px);
+}
+
+.chip.active {
+  background: var(--primary);
+  border-color: var(--primary);
+  color: #fff;
+}
+
+.clear-filter {
+  margin-left: auto;
+  padding: 6px 4px;
+  font-family: inherit;
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  background: none;
+  border: none;
+  border-bottom: 1px dashed var(--line-soft);
+  cursor: pointer;
+  transition: color 0.25s ease;
+}
+
+.clear-filter:hover {
   color: var(--primary);
-}
-
-.page-header h1 {
-  font-size: 2.5rem;
-  font-weight: 700;
-  margin-bottom: 12px;
-  background: linear-gradient(135deg, #fff 0%, #a1a1aa 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-}
-
-.subtitle {
-  font-size: 1.1rem;
-  color: var(--text-secondary);
 }
 
 .blog-grid {
@@ -161,18 +314,46 @@ onMounted(() => {
 }
 
 .blog-card {
-  background: var(--bg-card);
-  border: 1px solid rgba(255, 255, 255, 0.05);
-  border-radius: 20px;
-  padding: 32px;
+  position: relative;
+  overflow: hidden;
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.94), rgba(255, 250, 244, 0.76)),
+    var(--bg-card);
+  border: 1px solid var(--line-soft);
+  border-radius: 26px;
+  padding: 30px;
   cursor: pointer;
-  transition: all 0.3s ease;
+  box-shadow: var(--shadow);
+  transition: transform 0.32s ease, box-shadow 0.32s ease, background 0.32s ease;
+  animation: fadeInUp 0.7s ease both;
+}
+
+.blog-grid .blog-card:nth-child(2) { animation-delay: 0.08s; }
+.blog-grid .blog-card:nth-child(3) { animation-delay: 0.16s; }
+.blog-grid .blog-card:nth-child(4) { animation-delay: 0.24s; }
+.blog-grid .blog-card:nth-child(5) { animation-delay: 0.32s; }
+.blog-grid .blog-card:nth-child(6) { animation-delay: 0.4s; }
+
+.blog-card::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 3px;
+  background: var(--gradient-1);
+  opacity: 0;
+  transition: opacity 0.32s ease;
 }
 
 .blog-card:hover {
   background: var(--bg-card-hover);
-  transform: translateY(-5px);
-  box-shadow: var(--shadow);
+  transform: translateY(-6px);
+  box-shadow: 0 26px 54px -30px rgba(186, 132, 79, 0.4);
+}
+
+.blog-card:hover::before {
+  opacity: 1;
 }
 
 .blog-meta {
@@ -187,24 +368,58 @@ onMounted(() => {
 }
 
 .blog-category {
-  padding: 2px 10px;
-  background: rgba(245, 158, 11, 0.1);
+  padding: 3px 11px;
+  background: rgba(214, 109, 66, 0.08);
+  border: 1px solid rgba(214, 109, 66, 0.18);
   border-radius: 50px;
   font-size: 0.75rem;
-  color: var(--accent);
+  color: var(--primary);
 }
 
 .blog-title {
   font-size: 1.4rem;
   margin-bottom: 12px;
   color: var(--text-primary);
-  line-height: 1.4;
+  line-height: 1.45;
+  transition: color 0.3s ease;
+}
+
+.blog-card:hover .blog-title {
+  color: var(--primary);
 }
 
 .blog-excerpt {
   color: var(--text-secondary);
   margin-bottom: 20px;
   line-height: 1.7;
+}
+
+.card-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 20px;
+}
+
+.tag-mini {
+  padding: 3px 10px;
+  font-family: inherit;
+  font-size: 0.75rem;
+  color: var(--secondary);
+  background: rgba(90, 163, 163, 0.12);
+  border: 1px solid transparent;
+  border-radius: 50px;
+  cursor: pointer;
+  transition: all 0.25s ease;
+}
+
+.tag-mini:hover {
+  border-color: var(--secondary);
+}
+
+.tag-mini.active {
+  background: var(--secondary);
+  color: #fff;
 }
 
 .blog-footer {
@@ -233,7 +448,7 @@ onMounted(() => {
 .spinner {
   width: 40px;
   height: 40px;
-  border: 3px solid rgba(255, 255, 255, 0.1);
+  border: 3px solid rgba(149, 120, 82, 0.16);
   border-top-color: var(--primary);
   border-radius: 50%;
   animation: spin 1s linear infinite;
@@ -304,20 +519,62 @@ onMounted(() => {
 }
 
 .empty-state code {
-  background: rgba(255, 255, 255, 0.06);
+  background: rgba(214, 109, 66, 0.08);
   padding: 2px 8px;
   border-radius: 6px;
   font-size: 0.85rem;
-  color: var(--accent);
+  color: var(--primary-dark);
+}
+
+.no-result {
+  text-align: center;
+  padding: 60px 20px;
+}
+
+.no-result p {
+  color: var(--text-secondary);
+  margin-bottom: 16px;
 }
 
 @media (max-width: 768px) {
-  .page-header h1 {
-    font-size: 2rem;
+  /* 手机端固定头部矮很多，160px 顶部留白会白掉两成屏幕 */
+  .inner-hero {
+    padding-top: 108px;
   }
-  
+
+  .mobile-back {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    margin-bottom: 18px;
+    font-weight: 600;
+    color: var(--text-secondary);
+    text-decoration: none;
+  }
+
   .blog-grid {
     grid-template-columns: 1fr;
+  }
+
+  .blog-card {
+    padding: 24px 22px;
+    border-radius: 22px;
+  }
+
+  .filter-bar {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 14px;
+  }
+
+  .clear-filter {
+    margin-left: 0;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .blog-card {
+    animation: none;
   }
 }
 </style>

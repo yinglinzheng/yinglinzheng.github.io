@@ -7,7 +7,7 @@ export const profile = {
   github: 'https://github.com/elliottzheng',
   oldSite: 'https://yinglinzheng.netlify.app/',
   summary:
-    '从事中学信息技术与人工智能教育教学工作，负责厦门一中 AI 社团的指导与实践活动组织，持续探索人工智能课程、项目式学习与开源工具在教学场景中的结合。博士毕业于厦门大学信息学院，师从曾鸣教授与苏劲松教授；曾在微软亚洲研究院视觉计算组担任研究实习生。研究方向主要包括以人为中心的计算机视觉、人脸分析、姿态估计与视觉生成等，并在 CVPR、ICCV、AAAI、ACM MM 等国际会议期刊上发表二十余篇论文，担任 CVPR、ICCV、ECCV、AAAI 等国际会议审稿人。',
+    '从事中学信息技术、信息学奥赛、人工智能教育教学工作，负责厦门一中 AI 社团的指导与实践活动组织，持续探索与思考人工智能在教育教学、信息化等领域的应用。博士毕业于厦门大学信息学院，师从曾鸣教授与苏劲松教授；曾在微软亚洲研究院视觉计算组担任研究实习生。研究方向主要包括以人为中心的计算机视觉、人脸分析、姿态估计与视觉生成等，并在 CVPR、ICCV、AAAI、ACM MM 等国际会议期刊上发表二十余篇论文，担任 CVPR、ICCV、ECCV、AAAI 等国际会议审稿人。',
 }
 
 export const skills = [
@@ -23,6 +23,7 @@ export const skills = [
 ]
 
 export const news = [
+  { date: '2026.10', title: '论文被ACM MM Asia 2026接收' },
   { date: '2026.07', title: '入职福建省厦门第一中学，担任信息教师。' },
   { date: '2026.07', title: '担任首届中学生 AI 精英峰会（AYES2026）技术指导。' },
   { date: '2026.06', title: '博士毕业于厦门大学。' },

@@ -33,7 +33,9 @@ npm run blog:generate
 id: unique-post-id
 title: 文章标题
 date: 2024-01-15
-category: 技术
+author: 郑英林
+category: AI沉思录
+tags: 标签一, 标签二
 excerpt: 文章摘要，会显示在列表中
 ---
 ```
@@ -54,8 +56,18 @@ npm run blog:generate
 | id | 可选 | 文章唯一标识，默认使用文件名 |
 | title | **必填** | 文章标题 |
 | date | 可选 | 发布日期，默认今天 |
-| category | 可选 | 分类，默认"未分类" |
+| author | 可选 | 作者，显示在文章页页头；不填则不显示 |
+| category | 可选 | 所属**专栏**，单选，默认"未分类"。列表页按专栏聚合 |
+| tags | 可选 | **标签**，多个用逗号分隔（中英文逗号、顿号均可），如 `tags: AI偏见, 大模型, RLHF` |
 | excerpt | 可选 | 摘要，默认自动提取正文前150字 |
+
+### 专栏与标签
+
+- **专栏（category）** 一篇文章只归一个专栏，是列表页的分区维度，例如 `AI沉思录`、`教育观察`。
+- **标签（tags）** 一篇文章可挂多个标签，用于跨专栏横向检索。
+- 列表页顶部的筛选条支持「专栏 + 标签」组合筛选，筛选状态写在 URL 里，可直接分享，例如：
+  `https://yinglinzheng.github.io/#/blog?column=AI沉思录&tag=RLHF`
+- 专栏和标签的可选值由脚本从文章中自动聚合，**不需要另外维护清单**；文章少时筛选条会自动隐藏或简化。
 
 ### Markdown 支持
 

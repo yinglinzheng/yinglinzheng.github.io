@@ -59,6 +59,18 @@ function parseFrontmatter(content) {
   return { metadata, body };
 }
 
+// 解析标签：支持中英文逗号与顿号分隔，允许写成 [a, b] 或 a, b
+function parseTags(raw) {
+  if (!raw) return [];
+
+  return raw
+    .replace(/^\s*\[|\]\s*$/g, '')
+    .split(/[,，、]/)
+    .map(tag => tag.replace(/^[\s["']+|[\s"'\]]+$/g, '').trim())
+    .filter(Boolean)
+    .filter((tag, index, arr) => arr.indexOf(tag) === index);
+}
+
 // 生成文章摘要（从正文提取前150个字符）
 function generateExcerpt(body, maxLength = 150) {
   // 移除 Markdown 标记
@@ -122,7 +134,9 @@ async function generateIndex() {
         id: metadata.id || generateId(filename),
         title: metadata.title,
         date: metadata.date || new Date().toISOString().split('T')[0],
+        author: metadata.author || '',
         category: metadata.category || '未分类',
+        tags: parseTags(metadata.tags),
         excerpt: metadata.excerpt || generateExcerpt(body),
         file: filename
       };
@@ -154,6 +168,7 @@ id: my-new-post
 title: 新文章标题
 date: ${new Date().toISOString().split('T')[0]}
 category: 技术
+tags: 标签一, 标签二
 excerpt: 这是一篇新文章的摘要，会显示在文章列表中
 ---
 

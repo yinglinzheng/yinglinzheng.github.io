@@ -15,7 +15,7 @@
           </h1>
           <p class="hero-desc">
             {{ profile.title }}。<br />
-            关注中学人工智能教育、社团实践与开源工具在教学中的应用。
+            持续探索与思考人工智能在教育教学、信息化等领域的应用。
           </p>
           <div class="hero-tags">
             <span class="tag motion-float" style="--tag-tilt:1; --float-delay:.2s;">计算机科学与技术博士</span>
@@ -26,7 +26,7 @@
           </div>
           <div class="hero-buttons">
             <router-link to="/publications" class="btn btn-primary">查看论文</router-link>
-            <router-link to="/news" class="btn btn-outline">最新动态</router-link>
+            <router-link to="/blog" class="btn btn-outline">最新博客</router-link>
           </div>
         </div>
         <div class="hero-note motion-rise motion-delay-2">
